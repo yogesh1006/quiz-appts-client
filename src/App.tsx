@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import {fetchQuizQuestions} from './components/quiz/quiz'
 
 
 function App() {
