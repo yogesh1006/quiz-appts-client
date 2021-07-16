@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 
 
 function App() {
   return (
     <div className="App">
-       <h1>Website Under Construction </h1>
+       <p className="text-purple-700">Website Under Construction </p>
     </div>
   );
 }
