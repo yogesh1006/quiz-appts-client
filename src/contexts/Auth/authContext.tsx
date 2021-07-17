@@ -26,7 +26,8 @@ export type AuthContextType = {
 const AuthContext = createContext<AuthContextType>({ auth: null, setAuth: auth => console.log(auth) });
 
 export const AuthProvider:React.FC = ({children}) => {
-    const [ auth, setAuth ] = useState(JSON.parse(localStorage.getItem("gquiz-auth") || "null"));
+    const [ auth, setAuth ] = useState(JSON.parse(localStorage.getItem("auth") || "null"));
+    console.log(auth);
 
     return(
         <AuthContext.Provider value={{ auth, setAuth }}>
