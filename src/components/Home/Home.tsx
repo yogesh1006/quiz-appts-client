@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./home.css"
 
 const Home: React.FC = () => {
@@ -6,7 +7,7 @@ const Home: React.FC = () => {
       <h4 className="welcome"> Welcome to quiz trivia</h4>
       <div className="quiz-category">
       <div className="quiz-one">
-          <p className="category">Sports</p>
+        <Link to='/quiz/sports'> <p className="category" >Sports</p></Link>
       </div>
       <div className="quiz-two">
           <p className="category">Javscript</p>
