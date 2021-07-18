@@ -15,13 +15,13 @@ const Login: React.FC = () => {
   const loginHandler = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/login", {
+      const res = await axios.post("https://quiz--server.herokuapp.com/login", {
         email,
         password,
       });
       console.log(res);
       setAuth(res.data.data);
-      localStorage.setItem("auth",JSON.stringify(res.data.data.token))
+      localStorage.setItem("auth",JSON.stringify({username:res.data.data.name,token:res.data.data.token}))
       history.push("/");
       toast.success(res.data.message)
     } catch (error) {

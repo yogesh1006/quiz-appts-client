@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
-import { useQuiz } from '../../contexts'
+import { useQuiz,useAuth} from '../../contexts'
 import './Quiz.css'
 
 
@@ -9,6 +9,7 @@ import './Quiz.css'
 const Quiz: React.FC = () => {
 
     const { quiz, setQuiz } = useQuiz()
+    const {auth}= useAuth()
     const [count, setCount] = useState(0)
     const [score, setScore] = useState(0)
     const [ans, setAns] = useState<string>('wrong')
@@ -24,22 +25,29 @@ const Quiz: React.FC = () => {
     const getQuiz = async () => {
 
         try {
-            let quiz = await axios.post('http://localhost:8080/get_quiz_by_category', { category: category })
+            let quiz = await axios.post('https://quiz--server.herokuapp.com/api/get_quiz_by_category', { category: category },{headers:{
+                'authorization': auth?.token
+            }})
             setQuiz(quiz.data.data)
         } catch (error) {
-
+           console.log(error);
+           
         }
     }
 
 
     const nextQuestion = (ans:string | undefined) => {
+        let finalScore =0
         if(ans && quiz && count<=8){
             if(quiz[count].correct_answer === ans){
                 setScore((prevScore)=>prevScore + 1)
             }
             setCount((prevCount) => prevCount + 1)
         }  else{
-            history.push(`/score/${score}`)
+            if(quiz?.[count].correct_answer === ans){
+                finalScore= score + 1;
+            }
+            history.push(`/score/${finalScore}`)
         }
         
     }
@@ -70,7 +78,7 @@ const Quiz: React.FC = () => {
                         <input type="radio" value={quiz?.[count].incorrect_answers[3]} onChange={() => { onAnswer( quiz[count].incorrect_answers[3] ) }} checked = { ans===  quiz[count].incorrect_answers[3]} />
                         <span className="option">{quiz?.[count].incorrect_answers[3]}</span>
                     </div>
-                    <div> <button onClick={() => { nextQuestion(ans) }}>next</button></div>
+                    <div> <button onClick={() => { nextQuestion(ans) }}> {count <= 8 ? ("next") : ("Finish")}</button></div>
                 </div>
             ) : ('')}
 

@@ -9,7 +9,7 @@ const Signup: React.FC = () => {
 
     const signupHandler = async () => {
         try {
-            const res = await axios.post("http://localhost:8080/register",{name,email,password})
+            const res = await axios.post("https://quiz--server.herokuapp.com/register",{name,email,password})
             console.log(res);
         } catch (error) {
             console.log(error);
