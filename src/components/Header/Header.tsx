@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/Auth/authContext";
 import "./header.css";
+import {FiLogOut} from 'react-icons/fi'
 
 const Header: React.FC = () => {
   const { auth, setAuth } = useAuth();
@@ -30,11 +31,11 @@ const Header: React.FC = () => {
 
   return (
     <div className="header">
-      <Link to="/" style={{color:"white",textDecoration:"none",fontSize:"1rem",fontWeight:"bold"}}>NeoQuiz</Link>
+      <Link to="/" style={{color:"white",textDecoration:"none",fontSize:"1.5rem",fontWeight:"bold",letterSpacing:"2px"}}>NeoQuiz</Link>
       {auth?.token ? (
         <div className="links">
-          <Link to="/login">Scoreboard</Link>
-          <button onClick={logoutHandler}>Logout</button>
+          <NavLink to="/login" style={{textDecoration:"none",color:"white",marginRight:"5px"}}>Scoreboard</NavLink>
+          <FiLogOut onClick={logoutHandler}>Logout</FiLogOut>
         </div>
       ) : (
         <div className="links">

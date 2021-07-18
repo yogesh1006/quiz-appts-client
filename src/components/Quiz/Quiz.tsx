@@ -12,11 +12,9 @@ const Quiz: React.FC = () => {
   const [ans, setAns] = useState<string>("wrong");
 
   const history = useHistory();
-
   type Category = {
     category: string;
   };
-  
   const { category } = useParams<Category>();
 
   const getQuiz = async () => {
@@ -61,79 +59,82 @@ const Quiz: React.FC = () => {
   return (
     <div className="container">
       {quiz ? (
-        <div className="question">
-          <div className="score">Score:{score}</div>
-          <div className="ques">
-            <p>
-              <span>Q{count + 1}. </span>
-              {quiz?.[count].question}
-            </p>
+        <>
+          <div className="question">
+            <div className="question-num">
+              <span>Question: {count + 1} </span>
+
+              <div className="score">Score:{score}</div>
+            </div>
+            <div className="ques">
+              <p>Question: {quiz?.[count].question}</p>
+            </div>
+            <div className="options">
+              <div className="opt">
+                <input
+                  type="radio"
+                  value={quiz?.[count].incorrect_answers[0]}
+                  onChange={() => {
+                    onAnswer(quiz[count].incorrect_answers[0]);
+                  }}
+                  checked={ans === quiz[count].incorrect_answers[0]}
+                />
+                <span className="option">
+                  {quiz?.[count].incorrect_answers[0]}
+                </span>
+              </div>
+              <div className="opt">
+                <input
+                  type="radio"
+                  value={quiz?.[count].incorrect_answers[1]}
+                  onChange={() => {
+                    onAnswer(quiz[count].incorrect_answers[1]);
+                  }}
+                  checked={ans === quiz[count].incorrect_answers[1]}
+                />
+                <span className="option">
+                  {quiz?.[count].incorrect_answers[1]}
+                </span>
+              </div>
+              <div className="opt">
+                <input
+                  type="radio"
+                  value={quiz?.[count].incorrect_answers[2]}
+                  onChange={() => {
+                    onAnswer(quiz[count].incorrect_answers[2]);
+                  }}
+                  checked={ans === quiz[count].incorrect_answers[2]}
+                />
+                <span className="option">
+                  {quiz?.[count].incorrect_answers[2]}
+                </span>
+              </div>
+              <div className="opt">
+                <input
+                  type="radio"
+                  value={quiz?.[count].incorrect_answers[3]}
+                  onChange={() => {
+                    onAnswer(quiz[count].incorrect_answers[3]);
+                  }}
+                  checked={ans === quiz[count].incorrect_answers[3]}
+                />
+                <span className="option">
+                  {quiz?.[count].incorrect_answers[3]}
+                </span>
+              </div>
+            </div>
+            <div className="btn">
+              <button
+                onClick={() => {
+                  nextQuestion(ans);
+                }}
+              >
+                {" "}
+                {count <= 8 ? "Next" : "Finish"}
+              </button>
+            </div>
           </div>
-          <div className="options">
-            <div className="opt">
-              <input
-                type="radio"
-                value={quiz?.[count].incorrect_answers[0]}
-                onChange={() => {
-                  onAnswer(quiz[count].incorrect_answers[0]);
-                }}
-                checked={ans === quiz[count].incorrect_answers[0]}
-              />
-              <span className="option">
-                {quiz?.[count].incorrect_answers[0]}
-              </span>
-            </div>
-            <div className="opt">
-              <input
-                type="radio"
-                value={quiz?.[count].incorrect_answers[1]}
-                onChange={() => {
-                  onAnswer(quiz[count].incorrect_answers[1]);
-                }}
-                checked={ans === quiz[count].incorrect_answers[1]}
-              />
-              <span className="option">
-                {quiz?.[count].incorrect_answers[1]}
-              </span>
-            </div>
-            <div className="opt">
-              <input
-                type="radio"
-                value={quiz?.[count].incorrect_answers[2]}
-                onChange={() => {
-                  onAnswer(quiz[count].incorrect_answers[2]);
-                }}
-                checked={ans === quiz[count].incorrect_answers[2]}
-              />
-              <span className="option">
-                {quiz?.[count].incorrect_answers[2]}
-              </span>
-            </div>
-            <div className="opt">
-              <input
-                type="radio"
-                value={quiz?.[count].incorrect_answers[3]}
-                onChange={() => {
-                  onAnswer(quiz[count].incorrect_answers[3]);
-                }}
-                checked={ans === quiz[count].incorrect_answers[3]}
-              />
-              <span className="option">
-                {quiz?.[count].incorrect_answers[3]}
-              </span>
-            </div>
-          </div>
-          <div>
-            <button
-              onClick={() => {
-                nextQuestion(ans);
-              }}
-            >
-              {" "}
-              {count <= 8 ? "next" : "Finish"}
-            </button>
-          </div>
-        </div>
+        </>
       ) : (
         ""
       )}
