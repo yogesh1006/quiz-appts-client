@@ -4,25 +4,40 @@ import { useAuth } from "../../contexts/Auth/authContext";
 import "./header.css";
 
 const Header: React.FC = () => {
-  const { auth } = useAuth();
+  const { auth, setAuth } = useAuth();
    console.log("header",auth);
-   const history=useHistory()
+  const history = useHistory();
 
-   const logoutHandler =() => {
-     localStorage.clear();
-      history.push('/login')
-   }
-   
+  const logoutHandler = () => {
+    localStorage.clear();
+    setAuth({
+      token: "",
+      user: {
+        _id: "",
+        name: "",
+        email: "",
+        gameScore: [
+          {
+            category: "",
+            score: "",
+            played_date: "",
+          },
+        ],
+      },
+    });
+    history.push("/login");
+  };
+
   return (
     <div className="header">
-      <Link to="/">NeoQuiz</Link>
+      <Link to="/" style={{color:"white",textDecoration:"none",fontSize:"1rem",fontWeight:"bold"}}>NeoQuiz</Link>
       {auth?.token ? (
-        <div>
-        <Link to="/login">Scoreboard</Link>
-        <button onClick={logoutHandler}>Logout</button>
+        <div className="links">
+          <Link to="/login">Scoreboard</Link>
+          <button onClick={logoutHandler}>Logout</button>
         </div>
       ) : (
-        <div>
+        <div className="links">
           <Link to="/login">Login</Link>
           <Link to="/register">Signup</Link>
         </div>

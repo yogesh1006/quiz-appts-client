@@ -1,20 +1,39 @@
 .container {
     display: flex;
-    width : 50%;
-    min-height: 600px;
+    width : 70%;
+    /* min-height: 600px; */
     max-width: 1200px;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
 }
 
+.question{
+  padding:1rem;
+
+}
+
+.score{
+    font-size:1.5rem;
+}
 .ques {
+    display:flex;
     font-size: 1.5rem;
     font-weight: 600;
+    flex-direction:column;
 }
 
 .option{
     font-size: 1.2  rem;
     font-weight: 600;
+    
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+}
+
+.opt{
     
 }

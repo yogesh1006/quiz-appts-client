@@ -1,16 +1,15 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-// import { useAuth } from "../auth"
+import { useAuth } from "../contexts"
 
-type PrivateRoute = {
+type PvRoute = {
   path: string;
   component: any;
 };
 
-export default function PrivateRoute({ path, component }: PrivateRoute) {
-  // const { login } = useAuth()
-  const login = true;
-  return login ? (
+export default function PrivateRoute({ path, component }: PvRoute) {
+  const { auth } = useAuth();
+  return auth?.token ? (
     <Route component={component} path={path} />
   ) : (
     <Redirect to="/login" />
