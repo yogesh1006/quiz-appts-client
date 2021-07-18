@@ -39,8 +39,8 @@ const Header: React.FC = () => {
         </div>
       ) : (
         <div className="links">
-          <Link to="/login">Login</Link>
-          <Link to="/register">Signup</Link>
+          <Link to="/login" style={{textDecoration:"none",color:"white",marginLeft:"5px"}}>Login</Link>
+          <Link to="/register" style={{textDecoration:"none",color:"white",marginLeft:"5px"}}>Signup</Link>
         </div>
       )}
     </div>

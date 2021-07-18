@@ -59,22 +59,22 @@
 
 .opt span{
   letter-spacing:2px;
-  /* display:flex; */
-  /* flex-direction:row; */
-  /* align-items:center; */
 }
 
-.btn {
+.btn-quiz {
   text-align: right;
   margin-right: 1rem;
   margin-top: 1rem;
 }
 
-.btn button {
-  padding: 0.8rem;
+.btn-quiz button {
+  padding: 0.5rem 1rem;
   background-color: #131417;
   color: white;
+  font-weight:bold;
   font-size: 1rem;
   border-radius: 5px;
   outline: none;
+  text-align:center;
 }
+

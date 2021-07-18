@@ -123,7 +123,7 @@ const Quiz: React.FC = () => {
                 </span>
               </div>
             </div>
-            <div className="btn">
+            <div className="btn-quiz">
               <button
                 onClick={() => {
                   nextQuestion(ans);

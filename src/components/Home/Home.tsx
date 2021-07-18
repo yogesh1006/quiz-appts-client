@@ -3,24 +3,23 @@ import "./home.css";
 
 const Home: React.FC = () => {
   return (
-    <>
     <div className="home">
       <h4 className="welcome"> Welcome to quiz trivia</h4>
       <div className="quiz-category">
         <div className="quiz-one">
           <p className="category">Sports</p>
-          <Link to="/quiz/sports"  className="link"> Play Quiz</Link>
+          <div  className="center-link">
+           <Link to="/quiz/sports"  className="link"> Play Quiz</Link>
+          </div>
         </div>
         <div className="quiz-two">
           <p className="category">JavaScript</p>
-          <Link to="/quiz/javascript" className="link">Play Quiz</Link>
+          <div className="center-link">
+           <Link to="/quiz/javascript" className="link">Play Quiz</Link>
+          </div>
         </div>
       </div>
     </div>
-    <div>
-      
-    </div>
-    </>
   );
 };
 

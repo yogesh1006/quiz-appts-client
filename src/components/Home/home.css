@@ -29,9 +29,6 @@
   /* box-shadow: 5px 10px 8px 10px #888888; */
 }
 
-.quiz-one .quiz-two:hover{
-
-}
 .category {
   font-size: 1.5rem;
   font-weight: bolder;
@@ -58,6 +55,7 @@
 
   .quiz-one {
     display: flex;
+    flex-direction:column;
     justify-content: center;
     width: 400px;
     padding: 2rem 5px;
@@ -66,12 +64,19 @@
 
   .quiz-two {
     display: flex;
+    flex-direction:column;
     justify-content: center;
     width: 400px;
     padding: 2rem 5px;
     margin: 1.5rem;
   }
 
-  .category {
+  .link{
+    padding-left:0.5rem 1rem ;
+  }
+
+  .center-link{
+    display:flex;
+    justify-content:center;
   }
 }
