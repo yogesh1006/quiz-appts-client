@@ -10,12 +10,14 @@ import "./login.css";
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isLoading,setLoading] = useState(false);
   const { setAuth } = useAuth();
   const history = useHistory();
 
   const loginHandler = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const res = await axios.post("https://quiz--server.herokuapp.com/login", {
         email,
         password,
@@ -29,6 +31,7 @@ const Login: React.FC = () => {
           token: res.data.data.token,
         })
       );
+      setLoading(false);
       history.push("/");
       toast.success(res.data.message);
     } catch (error) {
@@ -62,7 +65,7 @@ const Login: React.FC = () => {
         />
       </div>
       <button className="btn" onClick={loginHandler}>
-        Login
+        {isLoading ? "Loading..." : "Login"}
       </button>
       <div className="register-link">Don't have Account? <Link to="/register" style={{color:"black",fontWeight:"bold"}}>Signup</Link></div>
     </form>

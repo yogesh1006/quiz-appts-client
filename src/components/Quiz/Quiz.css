@@ -52,6 +52,7 @@
 .opt input {
   width: 15px;
   height: 15px;
+  cursor:pointer;
 }
 .opt input:checked {
   background-color: #ecc94b;
@@ -76,5 +77,6 @@
   border-radius: 5px;
   outline: none;
   text-align:center;
+  cursor:pointer;
 }
 

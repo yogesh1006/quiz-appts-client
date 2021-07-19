@@ -1,20 +1,30 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useHistory } from "react-router";
 import "./signup.css";
 
 const Signup: React.FC = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [isLoading,setLoading] = useState(false);
 
-  const signupHandler = async () => {
+  const history = useHistory()
+
+  const signupHandler = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
     try {
+      setLoading(true);
       const res = await axios.post(
         "https://quiz--server.herokuapp.com/register",
         { name, email, password }
       );
       console.log(res);
+      setLoading(false);
+      history.push("/login");
+      toast.success(res.data.message);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +66,7 @@ const Signup: React.FC = () => {
         />
       </div>
       <button className="btn" onClick={signupHandler}>
-        Signup
+        {isLoading ? "Loading..." : "Signup"}
       </button>
       <div className="register-link">
         Already registered?

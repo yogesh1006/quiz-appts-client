@@ -34,8 +34,8 @@ const Header: React.FC = () => {
       <Link to="/" style={{color:"white",textDecoration:"none",fontSize:"1.5rem",fontWeight:"bold",letterSpacing:"2px"}}>NeoQuiz</Link>
       {auth?.token ? (
         <div className="links">
-          <NavLink to="/login" style={{textDecoration:"none",color:"white",marginRight:"5px"}}>Scoreboard</NavLink>
-          <FiLogOut onClick={logoutHandler}>Logout</FiLogOut>
+          <NavLink to="/scoreboard" style={{textDecoration:"none",color:"white",marginRight:"8px"}}>Scoreboard</NavLink>
+          <FiLogOut onClick={logoutHandler} style={{cursor:"pointer"}}>Logout</FiLogOut>
         </div>
       ) : (
         <div className="links">

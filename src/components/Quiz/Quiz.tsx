@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { useQuiz, useAuth } from "../../contexts";
+// import FinalScore from "./FinalScore";
 import "./Quiz.css";
 
 const Quiz: React.FC = () => {
@@ -9,6 +10,7 @@ const Quiz: React.FC = () => {
   const { auth } = useAuth();
   const [count, setCount] = useState(0);
   const [score, setScore] = useState(0);
+  // const [finalScore, setFinalScore] = useState(Number);
   const [ans, setAns] = useState<string>("wrong");
 
   const history = useHistory();
@@ -45,7 +47,8 @@ const Quiz: React.FC = () => {
       if (quiz?.[count].correct_answer === ans) {
         finalScore = score + 1;
       }
-      history.push(`/score/${finalScore}`);
+      history.push(`/score/${category}/${finalScore}`);
+      // setFinalScore(finalScore);
     }
   };
   const onAnswer = (selectedAns: string) => {
@@ -57,88 +60,92 @@ const Quiz: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
-      {quiz ? (
-        <>
-          <div className="question">
-            <div className="question-num">
-              <span>Question: {count + 1} </span>
+    <>
+      <div className="container">
+        {quiz ? (
+          <>
+            <div className="question">
+              <div className="question-num">
+                <span>Question: {count + 1} </span>
 
-              <div className="score">Score:{score}</div>
-            </div>
-            <div className="ques">
-              <p>Question: {quiz?.[count].question}</p>
-            </div>
-            <div className="options">
-              <div className="opt">
-                <input
-                  type="radio"
-                  value={quiz?.[count].incorrect_answers[0]}
-                  onChange={() => {
-                    onAnswer(quiz[count].incorrect_answers[0]);
-                  }}
-                  checked={ans === quiz[count].incorrect_answers[0]}
-                />
-                <span className="option">
-                  {quiz?.[count].incorrect_answers[0]}
-                </span>
+                <div className="score">Score:{score}</div>
               </div>
-              <div className="opt">
-                <input
-                  type="radio"
-                  value={quiz?.[count].incorrect_answers[1]}
-                  onChange={() => {
-                    onAnswer(quiz[count].incorrect_answers[1]);
-                  }}
-                  checked={ans === quiz[count].incorrect_answers[1]}
-                />
-                <span className="option">
-                  {quiz?.[count].incorrect_answers[1]}
-                </span>
+              <div className="ques">
+                <p>Question: {quiz?.[count].question}</p>
               </div>
-              <div className="opt">
-                <input
-                  type="radio"
-                  value={quiz?.[count].incorrect_answers[2]}
-                  onChange={() => {
-                    onAnswer(quiz[count].incorrect_answers[2]);
-                  }}
-                  checked={ans === quiz[count].incorrect_answers[2]}
-                />
-                <span className="option">
-                  {quiz?.[count].incorrect_answers[2]}
-                </span>
+              <div className="options">
+                <div className="opt">
+                  <input
+                    type="radio"
+                    value={quiz?.[count].incorrect_answers[0]}
+                    onChange={() => {
+                      onAnswer(quiz[count].incorrect_answers[0]);
+                    }}
+                    checked={ans === quiz[count].incorrect_answers[0]}
+                  />
+                  <span className="option">
+                    {quiz?.[count].incorrect_answers[0]}
+                  </span>
+                </div>
+                <div className="opt">
+                  <input
+                    type="radio"
+                    value={quiz?.[count].incorrect_answers[1]}
+                    onChange={() => {
+                      onAnswer(quiz[count].incorrect_answers[1]);
+                    }}
+                    checked={ans === quiz[count].incorrect_answers[1]}
+                  />
+                  <span className="option">
+                    {quiz?.[count].incorrect_answers[1]}
+                  </span>
+                </div>
+                <div className="opt">
+                  <input
+                    type="radio"
+                    value={quiz?.[count].incorrect_answers[2]}
+                    onChange={() => {
+                      onAnswer(quiz[count].incorrect_answers[2]);
+                    }}
+                    checked={ans === quiz[count].incorrect_answers[2]}
+                  />
+                  <span className="option">
+                    {quiz?.[count].incorrect_answers[2]}
+                  </span>
+                </div>
+                <div className="opt">
+                  <input
+                    type="radio"
+                    value={quiz?.[count].incorrect_answers[3]}
+                    onChange={() => {
+                      onAnswer(quiz[count].incorrect_answers[3]);
+                    }}
+                    checked={ans === quiz[count].incorrect_answers[3]}
+                  />
+                  <span className="option">
+                    {quiz?.[count].incorrect_answers[3]}
+                  </span>
+                </div>
               </div>
-              <div className="opt">
-                <input
-                  type="radio"
-                  value={quiz?.[count].incorrect_answers[3]}
-                  onChange={() => {
-                    onAnswer(quiz[count].incorrect_answers[3]);
+              <div className="btn-quiz">
+                <button
+                  onClick={() => {
+                    nextQuestion(ans);
                   }}
-                  checked={ans === quiz[count].incorrect_answers[3]}
-                />
-                <span className="option">
-                  {quiz?.[count].incorrect_answers[3]}
-                </span>
+                >
+                  {" "}
+                  {count <= 8 ? "Next" : "Finish"}
+                </button>
               </div>
             </div>
-            <div className="btn-quiz">
-              <button
-                onClick={() => {
-                  nextQuestion(ans);
-                }}
-              >
-                {" "}
-                {count <= 8 ? "Next" : "Finish"}
-              </button>
-            </div>
+          </>
+        ) : (
+          <div>
+            <h1>Loading...</h1>
           </div>
-        </>
-      ) : (
-        ""
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

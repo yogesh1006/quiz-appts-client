@@ -1,0 +1,25 @@
+.finalscore {
+  display: flex;
+  flex-direction: column;
+  justofy-content: center;
+  align-items: center;
+}
+
+
+
+.other-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  margin-left: 5px;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
+    margin-left: 5px; 
+}
