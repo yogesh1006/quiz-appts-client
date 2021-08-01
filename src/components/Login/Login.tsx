@@ -8,8 +8,8 @@ import { useAuth } from "../../contexts/Auth/authContext";
 import "./login.css";
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("yogesh123@gmail.com");
+  const [password, setPassword] = useState<string>("1234567");
   const [isLoading,setLoading] = useState(false);
   const { setAuth } = useAuth();
   const history = useHistory();
@@ -50,17 +50,21 @@ const Login: React.FC = () => {
           name="email"
           className="input-field"
           type="email"
+          size={40}
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <div className="field">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password</label><br/>
         <input
           placeholder="Enter password"
           id="password"
           name="password"
           type="password"
           className="input-field"
+          size={40}
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>

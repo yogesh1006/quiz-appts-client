@@ -33,34 +33,37 @@ const Signup: React.FC = () => {
     <form className="form">
       <h1>Signup</h1>
       <div className="field">
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Name</label><br/>
         <input
           placeholder="Enter Name"
           id="name"
           name="name"
           type="text"
+          size={40}
           onChange={(e) => setName(e.target.value)}
           className="input-field"
         />
       </div>
       <div className="field">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email</label><br/>
         <input
           placeholder="Enter email"
           id="email"
           name="email"
           type="email"
+          size={40}
           onChange={(e) => setEmail(e.target.value)}
           className="input-field"
         />
       </div>
       <div className="field">
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password</label><br/>
         <input
           placeholder="Enter password"
           id="password"
           name="password"
           type="password"
+          size={40}
           onChange={(e) => setPassword(e.target.value)}
           className="input-field"
         />

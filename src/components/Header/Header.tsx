@@ -31,7 +31,7 @@ const Header: React.FC = () => {
 
   return (
     <div className="header">
-      <Link to="/" style={{color:"white",textDecoration:"none",fontSize:"1.5rem",fontWeight:"bold",letterSpacing:"2px"}}>NeoQuiz</Link>
+      <Link to="/" style={{color:"white",textDecoration:"none",fontSize:"1.5rem",fontWeight:"bold",letterSpacing:"3px"}}>Brainzee</Link>
       {auth?.token ? (
         <div className="links">
           <NavLink to="/scoreboard" style={{textDecoration:"none",color:"white",marginRight:"8px"}}>Scoreboard</NavLink>

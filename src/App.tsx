@@ -6,6 +6,7 @@ import {Toaster} from "react-hot-toast"
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import FinalScore from "./components/Quiz/FinalScore";
 import Scoreboard from "./components/Scoreboard/Scoreboard";
+import Footer from "./components/footer/Footer";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <PrivateRoute  path="/quiz/:category" component={Quiz}></PrivateRoute>
         <PrivateRoute path="/scoreboard" component={Scoreboard}></PrivateRoute>
       </Switch>
+      <Footer/>
     </div>
   );
 }
