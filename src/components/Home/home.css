@@ -17,8 +17,10 @@
   /* border:1px solid black; */
   border-radius: 5px;
   background-color: #ecc94b;
+
   /* box-shadow: 5px 10px 8px 10px #888888; */
 }
+
 .quiz-two {
   text-align: center;
   padding: 1.5rem 1rem;
@@ -33,17 +35,17 @@
   font-size: 1.5rem;
   font-weight: bolder;
   letter-spacing: 2px;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-.link{
+.link {
   letter-spacing: 2px;
-  text-decoration:none;
-  background-color:lightblue;
-  padding:0.7rem;
-  color:black;
-  border-radius:3px;
-  cursor:pointer;
+  text-decoration: none;
+  background-color: lightblue;
+  padding: 0.7rem;
+  color: black;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -55,7 +57,7 @@
 
   .quiz-one {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     width: 400px;
     padding: 2rem 5px;
@@ -64,19 +66,19 @@
 
   .quiz-two {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     width: 400px;
     padding: 2rem 5px;
     margin: 1.5rem;
   }
 
-  .link{
-    padding-left:0.5rem 1rem ;
+  .link {
+    padding-left: 0.5rem 1rem;
   }
 
-  .center-link{
-    display:flex;
-    justify-content:center;
+  .center-link {
+    display: flex;
+    justify-content: center;
   }
 }

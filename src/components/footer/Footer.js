@@ -2,11 +2,11 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <div>
+    <footer className="footer">
+      <p>
         Brainzee <span> Made With Love 💖</span>
-      </div>
-    </div>
+      </p>
+    </footer>
   );
 };
 
