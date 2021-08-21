@@ -6,7 +6,6 @@ import {FiLogOut} from 'react-icons/fi'
 
 const Header: React.FC = () => {
   const { auth, setAuth } = useAuth();
-   console.log("header",auth);
   const history = useHistory();
 
   const logoutHandler = () => {

@@ -6,7 +6,6 @@ import "./scoreboard.css";
 const Scoreboard: React.FC = () => {
   const [user, setUser] = useState<User>();
   const { auth } = useAuth();
-  console.log(user);
 
   type User = {
     email: string;
@@ -44,7 +43,7 @@ const Scoreboard: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="score-container">
       <h4 style={{ textAlign: "center",fontWeight:"bold",fontSize:"1.5rem" }}>Username: {user?.name}</h4>
       <tbody
        className="table">
@@ -61,7 +60,7 @@ const Scoreboard: React.FC = () => {
             </tr>
         ))}
       </tbody>
-    </>
+    </div>
   );
 };
 
