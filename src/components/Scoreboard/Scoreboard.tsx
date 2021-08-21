@@ -46,7 +46,8 @@ const Scoreboard: React.FC = () => {
   return (
     <>
       <h4 style={{ textAlign: "center",fontWeight:"bold",fontSize:"1.5rem" }}>Username: {user?.name}</h4>
-      <tbody className="table">
+      <table
+       className="table">
         <tr className="row">
           <th className="table-header">Category</th>
           <th className="table-header">Score</th>
@@ -54,12 +55,12 @@ const Scoreboard: React.FC = () => {
         </tr>
         {user?.game_score.map((item,index) => (
             <tr className="row" key={index}>
-              <th className="table-head">{item.category}</th>
-              <th className="table-head">{item.score} / 10</th>
-              <th className="table-head">{item.played_date}</th>
+              <td className="table-head">{item.category}</td>
+              <td className="table-head">{item.score} / 10</td>
+              <td className="table-head">{item.played_date}</td>
             </tr>
         ))}
-      </tbody>
+      </table>
     </>
   );
 };
