@@ -1,4 +1,4 @@
-## A workout app for your brain. 
+## Brainzee - A workout app for your brain. 
 
 ### This repo is for a simple quiz app made using MERN + TypeScript
 [Link to the backend code repo](https://github.com/yogesh1006/quiz-appts-server)
