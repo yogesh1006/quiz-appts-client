@@ -46,7 +46,7 @@ const Scoreboard: React.FC = () => {
   return (
     <>
       <h4 style={{ textAlign: "center",fontWeight:"bold",fontSize:"1.5rem" }}>Username: {user?.name}</h4>
-      <table
+      <tbody
        className="table">
         <tr className="row">
           <th className="table-header">Category</th>
@@ -60,7 +60,7 @@ const Scoreboard: React.FC = () => {
               <td className="table-head">{item.played_date}</td>
             </tr>
         ))}
-      </table>
+      </tbody>
     </>
   );
 };
